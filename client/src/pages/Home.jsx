@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import AssistantPreview from "../components/AssistantPreview";
+import AssistantPreview from "../Components/AssistantPreview";
+
 
 function Home({ user }) {
   return (
