@@ -2,7 +2,8 @@
 node_modules/
 
 # Build output
-build/
+.next/
+out/
 dist/
 
 # Logs
@@ -11,6 +12,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# OS files
+.DS_Store
+Thumbs.db
+
 # Environment variables
 .env
 .env.local
@@ -18,14 +23,13 @@ pnpm-debug.log*
 .env.test.local
 .env.production.local
 
-# OS files
-.DS_Store
-Thumbs.db
-
 # IDE/editor settings
 .vscode/
 .idea/
 *.swp
+
+# TypeScript build cache
+*.tsbuildinfo
 
 # Coverage reports
 coverage/
