@@ -24,7 +24,7 @@
 
     let isListening = false;
 
-   
+
     const assistantConfig = {
 
         assistantName: "DevNova AI",
@@ -74,7 +74,11 @@
 
         <div class="devnova-launcher-inner">
 
-            🎤
+            <img
+src="http://localhost:5173/logo.png"
+class="devnova-launcher-logo"
+/>
+
 
         </div>
     `;
@@ -260,7 +264,7 @@ Loading...
 
     document.body.appendChild(popup);
 
-     const input =
+    const input =
         popup.querySelector(".devnova-text");
 
     const send =
@@ -344,32 +348,35 @@ Loading...
 
         try {
 
-            const res = await fetch(`${API_URL}/assistant/${assistantId}`);
+            const res = await fetch(`${API_URL}/assistant/config/${assistantId}`);
 
             if (!res.ok) return;
 
             const data = await res.json();
 
-            if (data) {
+            console.log(data);
+
+            const user = data.user;
+
+            if (user) {
 
                 assistantConfig.assistantName =
-                    data.assistantName ||
-                    "DevNova AI";
+user.assistantName || "DevNova AI";
 
-                assistantConfig.businessName =
-                    data.businessName || "";
+assistantConfig.businessName =
+user.businessName || "";
 
-                assistantConfig.businessDescription =
-                    data.businessDescription || "";
+assistantConfig.businessDescription =
+user.businessDescription || "";
 
-                assistantConfig.theme =
-                    data.theme || "dark";
+assistantConfig.theme =
+user.theme || "dark";
 
-                assistantConfig.tone =
-                    data.tone || "friendly";
+assistantConfig.tone =
+user.tone || "friendly";
 
-                assistantConfig.pages =
-                    data.pages || [];
+assistantConfig.pages =
+user.pages || [];
 
                 applyAssistantConfig();
 
@@ -387,13 +394,7 @@ Loading...
 
     function applyAssistantConfig() {
 
-        const welcome =
-
-        popup.querySelector(
-
-            ".welcome-description"
-
-        );
+        
 
         popup.className =
             `devnova-popup theme-${assistantConfig.theme}`;
@@ -411,19 +412,22 @@ Loading...
         const sub =
             popup.querySelector(".devnova-subtitle");
 
+            const welcome =
+popup.querySelector(".welcome-description");
+
         if (sub) {
 
-            sub.innerHTML =
+sub.innerHTML = `
+Your smart AI Assistant
+<br>
+${assistantConfig.businessName}
+`;
 
-                assistantConfig.businessName ||
-
-                "Your smart AI Assistant";
-
-        }
+}
 
     }
 
-    
+
 
     function addMessage(type, text) {
 
@@ -456,20 +460,20 @@ Loading...
 
     }
 
-    function fakeAI(text){
+    function fakeAI(text) {
 
-setTimeout(()=>{
+        setTimeout(() => {
 
-addMessage(
+            addMessage(
 
-"ai",
+                "ai",
 
-"You said : " + text
+                "You said : " + text
 
-);
+            );
 
-},600);
+        }, 600);
 
-}
+    }
 
 })();

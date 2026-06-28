@@ -1145,3 +1145,34 @@ color:white;
 font-size:18px;
 
 }
+.devnova-logo{
+
+width:48px;
+
+height:48px;
+
+object-fit:contain;
+
+pointer-events:none;
+
+filter:drop-shadow(0 0 12px rgba(255,255,255,.35));
+
+transition:.35s;
+
+}
+
+.devnova-mic:hover .devnova-logo{
+
+transform:scale(1.08);
+
+}
+
+.devnova-launcher-logo{
+
+width:42px;
+
+height:42px;
+
+object-fit:contain;
+
+}
