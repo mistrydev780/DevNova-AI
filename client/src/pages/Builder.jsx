@@ -1224,17 +1224,17 @@ hover:bg-red-100
                 </button>
               </motion.div>
 
-            </div>     
+            </div>
 
-          </>         
+          </>
 
-      )
+        )
 
-}
+      }
 
-    </div>     
+    </div>
 
-);
+  );
 
 }
 
